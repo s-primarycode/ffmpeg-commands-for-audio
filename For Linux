@@ -1,0 +1,23 @@
+FLAC to M4A
+
+	ffmpeg -i input.flac output.m4a
+
+
+MP3 to M4A
+
+	ffmpeg -i input.flac -c:a libmp3lame -b:a 192k output.mp3
+
+
+FLAC TO MP3
+
+	ffmpeg -i input.flac -c:a libmp3lame -b:a 192k output.mp3
+
+
+ADD META DATA
+
+	ffmpeg -i input.flac -i cover.jpg -map 0:a -map 1:v -c:a aac -b:a 128k -c:v copy -metadata title="Song Title" -metadata artist="Artist Name" -metadata album="Album Name" -metadata genre="Genre" -metadata date="2026" output.m4a
+
+
+Slightly Compress M4A
+
+	ffmpeg -i input.m4a -c:a aac -b:a 128k output.m4a
