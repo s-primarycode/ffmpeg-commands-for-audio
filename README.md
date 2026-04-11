@@ -15,3 +15,18 @@
 **FLAC folder to M4A**
 
 	for %f in (*.flac) do ffmpeg -i "%f" -c:a alac "%~nf.m4a"
+
+
+For Linux
+
+	ffmpeg -i song.flac -i cover.jpg \
+	-map 0:a -map 1:v \
+	-c:a aac -b:a 192k \
+	-c:v mjpeg \
+	-disposition:v:0 attached_pic \
+	-metadata title="Blinding Lights" \
+	-metadata artist="The Weeknd" \
+	-metadata album="After Hours" \
+	-metadata genre="Pop" \
+	-metadata date="2020" \
+	song.m4a
